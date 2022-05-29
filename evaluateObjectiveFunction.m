@@ -1,4 +1,4 @@
-function [f_eval, err] = pmu_evalZI_correnteLinee(chrom)
+function [f_eval, err] = evaluateObjectiveFunction(chrom)
 
     global Incidence G E x_nom n_meas Gbus Bbus gen max_f2
     global R_V_R R_V_I R_Iinj_R R_Iinj_I W_V_R W_V_I W_Iinj_R W_Iinj_I V_R V_I Iinj_R Iinj_I

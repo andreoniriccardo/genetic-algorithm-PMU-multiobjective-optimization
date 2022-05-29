@@ -1,4 +1,4 @@
-function [initialPop] = initialPopOptStimatoreN()
+function [initialPop] = initialPopOptimization()
 
 global N G Incidence
 
@@ -34,7 +34,7 @@ for i=minPMU:G-1 % Per qualunque possibile valore di n PMU ammissibile
         temp = pool(count,:);
         count = count + 1;
     end
-    for j = 1:(totPart-1) % Determino totPart-1 (una è già stata appena creata) possibili soluzioni ammissibili
+    for j = 1:(totPart-1) % Determino totPart-1 (una ï¿½ giï¿½ stata appena creata) possibili soluzioni ammissibili
         % Seleziono casualmente un cromosoma 1 dall'ultima soluzione generata
         clear oneIndices
         if nnz(temp) < G
@@ -43,7 +43,7 @@ for i=minPMU:G-1 % Per qualunque possibile valore di n PMU ammissibile
         else
             randomIndex = randsample(1:G,1);
         end
-        
+
         % Vario i vincoli di uguaglianza per imporre che tale indice sia
         % pari a 0
         clear newConstr
@@ -58,7 +58,7 @@ for i=minPMU:G-1 % Per qualunque possibile valore di n PMU ammissibile
         soluzione = soluzione';
         solSize = size(soluzione);
         if solSize(2) == G
-            pool(count,:) = soluzione;        
+            pool(count,:) = soluzione;
             pool = round(pool);
             disp({'Trovata soluzione con _ PMU (+)',i});
             disp({'Totale soluzioni trovate:',count});
@@ -73,7 +73,7 @@ for i=minPMU:G-1 % Per qualunque possibile valore di n PMU ammissibile
             count = count + 1;
         end
     end
-    
+
 end
 
 a = size(pool);
@@ -83,12 +83,5 @@ pool=[  pool;
 
 initialPop = round(pool);
 
-%{
-% Per verifica
-aa=size(pool);
-for iii = 1:aa(1)
-    pool(iii,G+1) = nnz(pool(iii,:));
-end
-%}
 
 end

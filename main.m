@@ -187,7 +187,7 @@ popInit = round(popInit);
 %}
 
 % Optimized population generation
-popInit = initialPopOptStimatoreN();
+popInit = initialPopOptimization();
 
 % Evaluation of objective functions and constraint compliance of initial
 % population
